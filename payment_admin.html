@@ -1,0 +1,102 @@
+c:\Users\Nani\AppData\Local\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip\{DE9D20CE-9FBA-4DC4-9D53-34689E04DF9C}.png<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment Admin Settings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #007bff;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .message {
+      margin-top: 1rem;
+      font-style: italic;
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Payment Admin Settings</h1>
+  <form id="paymentSettingsForm">
+    <label for="upiIdInput">UPI ID:</label>
+    <input type="text" id="upiIdInput" placeholder="Enter UPI ID" required />
+
+    <label for="qrUrlInput">QR Code Image URL:</label>
+    <input type="text" id="qrUrlInput" placeholder="Enter QR code image URL" required />
+
+    <button type="submit">Save Settings</button>
+  </form>
+  <div class="message" id="message"></div>
+
+  <script>
+    const upiIdInput = document.getElementById('upiIdInput');
+    const qrUrlInput = document.getElementById('qrUrlInput');
+    const messageDiv = document.getElementById('message');
+
+    // Load saved settings from localStorage
+    function loadSettings() {
+      const upiId = localStorage.getItem('adminUpiId') || '';
+      const qrUrl = localStorage.getItem('adminQrUrl') || '';
+      upiIdInput.value = upiId;
+      qrUrlInput.value = qrUrl;
+    }
+
+    // Save settings to localStorage
+    document.getElementById('paymentSettingsForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const upiId = upiIdInput.value.trim();
+      const qrUrl = qrUrlInput.value.trim();
+      if (upiId && qrUrl) {
+        localStorage.setItem('adminUpiId', upiId);
+        localStorage.setItem('adminQrUrl', qrUrl);
+        messageDiv.textContent = 'Settings saved successfully!';
+        setTimeout(() => {
+          messageDiv.textContent = '';
+        }, 3000);
+      } else {
+        messageDiv.textContent = 'Please fill in both fields.';
+      }
+    });
+
+    loadSettings();
+  </script>
+</body>
+</html>
