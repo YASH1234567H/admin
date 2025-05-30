@@ -10,7 +10,7 @@
       padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #1a1a2e;
       overflow: hidden;
       position: relative;
       z-index: 0;
@@ -19,7 +19,7 @@
       position: fixed;
       width: 100%;
       height: 100%;
-      background-color: #f9f9f9;
+      background-color: #1a1a2e;
       background-size: cover;
       background-position: 50% 50%;
       z-index: -1;
@@ -103,11 +103,11 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-  <script>
+    <script>
     tsParticles.load('particles-js', {
       fpsLimit: 60,
       background: {
-        color: "#f9f9f9"
+        color: "#1a1a2e"
       },
       particles: {
         number: {
@@ -118,20 +118,20 @@
           }
         },
         color: {
-          value: "#007bff"
+          value: "#e94560"
         },
         shape: {
-          type: "circle"
+          type: "triangle"
         },
         opacity: {
-          value: 0.5,
+          value: 0.7,
           random: false,
           anim: {
             enable: false
           }
         },
         size: {
-          value: 3,
+          value: 4,
           random: true,
           anim: {
             enable: false
@@ -140,13 +140,13 @@
         links: {
           enable: true,
           distance: 150,
-          color: "#007bff",
-          opacity: 0.4,
+          color: "#e94560",
+          opacity: 0.5,
           width: 1
         },
         move: {
           enable: true,
-          speed: 2,
+          speed: 3,
           direction: "none",
           random: false,
           straight: false,
